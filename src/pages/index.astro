@@ -1,6 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TiltBox from '../components/TiltBox.astro';
 import Card from '../components/Card.astro';
+import Icon from '../components/Icon.astro';
+import type { iconPaths } from '../components/IconPaths';
+
+const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
+	{ label: 'GitHub', href: 'https://github.com/maxsrobotics', icon: 'github-logo' },
+	{ label: 'YouTube', href: 'https://www.youtube.com/@maxrobotics3703', icon: 'youtube-logo' },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/max-kendall-a51209308/', icon: 'linkedin-logo' },
+	{ label: 'Discord', href: 'https://discord.com/users/699990515256655943', icon: 'discord-logo' },
+	{ label: 'Email', href: 'mailto:maxsrobotics@gmail.com', icon: 'email-logo'},
+];
 ---
 
 <Layout title="Max Kendall">
@@ -33,37 +44,56 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<div>
-			<h1>
-				<span class="text-lg"">Hey there, I'm</span> 
-				<br>
-				<span class="text-gradient">Max Kendall</span>
-			</h1>
+		
+		<TiltBox>
+		<div class="welcome">
+			<div>
+				<h1 style="margin-bottom: 1rem;">
+					<span style="font-size: 2.5rem;">Hey there, I'm</span> 
+					<br>
+					<span class="text-gradient">Max Kendall</span>
+				</h1>
+				<div class="socials">
+					{
+						iconLinks.map(({ href, icon, label }) => (
+							<a href={href} class="social">
+								<span class="sr-only">{label}</span>
+								<Icon icon={icon} size="100" />
+							</a>
+						))
+					}
+				</div>
+				<p class="text-lg" style="text-align: center; max-width: 30rem; margin: auto;">I'm an avid youth developer based in the Greater Boston area in Massachusetts. I enjoy anything involving PCBs, embedded firmware, web development, CAD, 3D printing, and combining all of these into a single functional project. I also love teaching and presenting these technical topics to spread the knowledge. Look below for some of my projects!</p>
+			</div>
+			<div>
+				<img src="assets/portrait.jpg" alt="Max in front of his home electronics lab!">
+			</div>
 		</div>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
+		</TiltBox>
+		<br>
+		<hr>
+		<br>
+		<h1>My Projects</h1>
 		<ul role="list" class="link-card-grid">
 			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
+				href="https://example.com"
+				title="Tiny4FSK"
+				body="PLACEHOLDER"
 			/>
 			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
+				href="https://example.com"
+				title="PLACEHOLDER"
+				body="PLACEHOLDER"
 			/>
 			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
+				href="https://example.com"
+				title="PLACEHOLDER"
+				body="PLACEHOLDER"
 			/>
 			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
+				href="https://example.com"
+				title="PLACEHOLDER"
+				body="PLACEHOLDER"
 			/>
 		</ul>
 	</main>
@@ -79,6 +109,26 @@ import Card from '../components/Card.astro';
 		font-size: 20px;
 		line-height: 1.6;
 	}
+
+	.socials {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.625rem;
+		font-size: var(--icon-size);
+		margin-bottom: 1rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.social {
+		display: flex;
+		padding: var(--icon-padding);
+		text-decoration: none;
+		color: var(--accent-dark);
+		transition: color var(--theme-transition);
+		justify-content: center;
+	}
+
 	.astro-a {
 		position: absolute;
 		top: -32px;
@@ -94,6 +144,22 @@ import Card from '../components/Card.astro';
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
+	}
+	.welcome {
+		display: flex;
+		margin: auto;
+		max-width: 50rem;
+		max-height: 15 rem;
+		border: solid rgba(var(--accent-dark), 66%) 7px;
+		border-radius: 15%;
+	}
+	.welcome > div {
+		margin: 1rem;
+		align-items: center;
+	}
+	.welcome > div > img {
+		border: solid rgb(var(--accent-dark)) 7px;
+		border-radius: 20%;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
