@@ -1,42 +1,45 @@
 ---
 ---
+
 <div class="tilt-box">
-    <slot /> <!-- Allows content to be passed in -->
-  </div>
-  
-  <style>
+    <slot />
+</div>
+
+<style>
     .tilt-box {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      perspective: 1000px;
-      border-radius: 20px;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+        border-radius: var(--border-radius);
     }
-  
+
     .tilt-box:hover {
-      box-shadow: 0 50px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 50px 30px rgba(0, 0, 0, 0.3);
     }
-  </style>
-  
-  <script>
-    const tiltBox = document.querySelector('.tilt-box') as HTMLElement | null;
-  
+</style>
+
+<script>
+    const tiltBox = document.querySelector(".tilt-box") as HTMLElement | null;
+
     if (tiltBox) {
-      tiltBox.addEventListener('mousemove', (e: MouseEvent) => {
-        const { width, height, left, top } = tiltBox.getBoundingClientRect();
-        const x = e.clientX - left - width / 2;
-        const y = e.clientY - top - height / 2;
-  
-        const rotateX = -y / (height / 30);
-        const rotateY = x / (width / 30);
-  
-        tiltBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
-  
-      tiltBox.addEventListener('mouseleave', () => {
-        tiltBox.style.transform = 'rotateX(0) rotateY(0)';
-      });
+        tiltBox.addEventListener("mousemove", (e: MouseEvent) => {
+            const { width, height, left, top } =
+                tiltBox.getBoundingClientRect();
+            const x = e.clientX - left - width / 2;
+            const y = e.clientY - top - height / 2;
+
+            const rotateX = -y / (height / 30);
+            const rotateY = x / (width / 30);
+
+            tiltBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        tiltBox.addEventListener("mouseleave", () => {
+            tiltBox.style.transform = "rotateX(0) rotateY(0)";
+        });
     }
-  </script>
-  
+</script>
