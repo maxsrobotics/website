@@ -1,4 +1,5 @@
 ---
+// Import TiltBox component and define Props
 import TiltBox from "../components/TiltBox.astro";
 
 interface Props {
@@ -8,43 +9,68 @@ interface Props {
     image: string;
 }
 
+// Destructure the props
 const { title, href, body, image } = Astro.props;
 ---
 
-<TiltBox>
-    <div class="project-card">
-        <a href={href}>
-            <div>
-                <h1>{title}</h2>
-                <p
-                    class="text-lg"
-                    style="max-width: 30rem;"
-                >
-                    {body}
-                </p>
+<TiltBox borderRadius="2em" width="400px" height="350px" divisor=15>
+    <div class="card">
+        <div class="text-content">
+            <a href={href}>
+                <h3 class="card-title">{title}</h3>
+            </a>
+        </div>
+        <div class="image-body-wrapper">
+            <img src={image} alt={title} class="image-content" />
+            <div class="body-content">
+                <p>{body}</p>
             </div>
-            <div>
-                <img src={image} />
-            </div>
-        </a>
+        </div>
     </div>
 </TiltBox>
 
 <style>
-    .project-card {
+    .card {
+        border: 4px solid rgb(255, 165, 0);
+        padding: 16px;
+        border-radius: 2em;
         display: flex;
-        max-height: 15 rem;
-        border: solid rgb(139, 43, 43) 7px;
-        border-radius: 4em;
+        flex-direction: column; /* Stack title first */
+        background-color: #0b111f;
+        width: 400px;
+        height: 350px
     }
 
-	.project-card > a > div {
-		margin: 1rem;
-	}
+    .text-content {
+        margin-bottom: 12px; /* Space between title and image-body-wrapper */
+    }
 
-	.project-card > a > div > img {
-		border: solid rgb(255, 165, 0) 5px;
-		border-radius: 4em;
-        max-height: 30rem;
-	}
+    .image-body-wrapper {
+        display: flex;
+        flex-direction: row; /* Image and body side by side */
+        /* align-items: flex-start; */
+    }
+
+    .image-content {
+        width: 150px;
+        height: auto;
+        border-radius: 1em;
+        margin-right: 16px; /* Add space between image and text */
+    }
+
+    .body-content {
+        flex-grow: 1;
+    }
+
+    .card-title {
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .card p {
+        margin-top: 0;
+        font-size: 14px;
+    }
 </style>
