@@ -5,15 +5,16 @@ import TiltBox from "../components/TiltBox.astro";
 interface Props {
     title: string;
     body: string;
-    href: string;
+    href?: string;
     image: string;
+    position?: string;
 }
 
 // Destructure the props
-const { title, href, body, image } = Astro.props;
+const { title, href, body, image, position } = Astro.props;
 ---
 
-<TiltBox borderRadius="2em" width="400px" height="350px" divisor=15>
+<TiltBox borderRadius="2em" width="400px" height="350px" divisor=20>
     <div class="card">
         <div class="text-content">
             <a href={href}>
@@ -21,7 +22,7 @@ const { title, href, body, image } = Astro.props;
             </a>
         </div>
         <div class="image-body-wrapper">
-            <img src={image} alt={title} class="image-content" />
+            <img src={image} alt={title} class="image-content" style=`object-position: ${position};` />
             <div class="body-content">
                 <p>{body}</p>
             </div>
@@ -38,7 +39,7 @@ const { title, href, body, image } = Astro.props;
         flex-direction: column; /* Stack title first */
         background-color: #0b111f;
         width: 400px;
-        height: 350px
+        height: 360px;
     }
 
     .text-content {
@@ -48,14 +49,14 @@ const { title, href, body, image } = Astro.props;
     .image-body-wrapper {
         display: flex;
         flex-direction: row; /* Image and body side by side */
-        /* align-items: flex-start; */
     }
 
     .image-content {
         width: 150px;
-        height: auto;
+        height: 270px;
         border-radius: 1em;
         margin-right: 16px; /* Add space between image and text */
+        object-fit: cover;
     }
 
     .body-content {

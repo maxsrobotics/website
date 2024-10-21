@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import TiltBox from "../components/TiltBox.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import PresentationCard from "../components/PresentationCard.astro";
 import Card from "../components/Card.astro";
 import Icon from "../components/Icon.astro";
 import type { iconPaths } from "../components/IconPaths";
@@ -64,12 +65,12 @@ const iconLinks: {
 						style="text-align: center; max-width: 30rem; margin: auto;"
 					>
 						I'm an avid youth developer in 8th grade based in the
-						Greater Boston area in Massachusetts. I enjoy anything
+						Greater Boston area in Massachusetts. I love sending projects into near-space on high altitude balloons, and I enjoy anything
 						involving PCBs, embedded firmware, web development, CAD,
 						3D printing, and combining all of these into a single
-						functional project. I also love teaching and presenting
+						functional project. I have my Amateur Extra radio license (callsign W0MXX). I also love teaching and presenting
 						these technical topics to spread the knowledge. Look
-						below for some of my projects! [[TODO: ADD HAB SECTION]]
+						below for some of my projects!
 					</p>
 				</div>
 				<div>
@@ -81,27 +82,190 @@ const iconLinks: {
 			</div>
 		</TiltBox>
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
-		<h1>My Projects</h1>
+		<h1 style="margin-bottom: 0px;">My Projects</h1>
+		<p style="margin-bottom: 30px; margin-top: 30px; text-align: center;">I believe that project-based learning is the best form of learning. Throughout all of my projects, I have developed many skills. </p>
 		<div class="projects">
 			<ProjectCard
 				title="Tiny4FSK"
 				body="Tiny4FSK is an ultra-tiny high-altitude research platform, fully open source. It allows students, educators, and researchers to gain access to advanced high-altitude research environments. It is designed to fly on high-altitude balloons, which is a hobby which allows people to fly research experiments to over 100,000 feet (31 km)!"
 				href="https://github.com/maxsrobotics/Tiny4FSK"
-				image="assets/Tiny4FSK_Sky.jpg"
+				image="assets/projects/Tiny4FSK_Sky.jpg"
+			/>
+			<ProjectCard
+				title="N.E.W.B.S."
+				body="I founded the New England Weather Balloon Society, an online and in-person club dedicated to launching, tracking, and recovering high-altitude balloons. I created and manage the Discord server, which currently has over 100 members and continuous activity. I also run booths at local conventions."
+				href="https://nescitech.org/newbs"
+				image="assets/projects/NEWBS.jpg"
+				position="55%"
 			/>
 			<ProjectCard
 				title="Cubes in Space 2022"
 				body="Cubes in Space is a program which gives students a 40mm cube to fly experiments on a sounding rocket. I flew an advanced electronics payload featuring application of Faraday's Law to test viability of generating electrical energy from the vibrations of a sounding rocket."
 				href="https://github.com/maxsrobotics/CubesinSpace"
-				image="assets/CiS.png"
+				image="assets/projects/CiS.jpg"
+				position="30%"
 			/>
-			<!-- <ProjectCard
-				title=""
-				body="Tiny4FSK is an ultra-tiny high-altitude research platform, fully open source. It allows students, educators, and researchers to gain access to advanced high-altitude research environments. It is designed to fly on high-altitude balloons, which is a hobby which allows people to fly research experiments to over 100,000 feet (31 km)!"
-				href="https://github.com/maxsrobotics/Tiny4FSK"
-				image="assets/Tiny4FSK_Sky.jpg"
-			/> -->
+			<ProjectCard
+				title="Ham Club"
+				body="This was a project in conjunction with Hack Club that gave youth ham radios if they got their license. I helped with the curriculum, planning, organization, and graphic design of the project."
+				href="https://ham.hackclub.com"
+				image="assets/projects/hamclub.webp"
+				position="50%"
+			/>
+			<ProjectCard
+				title="OpenCV Resistor Finder"
+				body="This was an OpenCV resistor value finder that utilized complex mathematics to find the value of the resistor being held up to the webcam. This was developed as a project for the Beantown Bash 2023 hackathon, which Charlie Nicholson (my teammate) and myself won."
+				href="https://github.com/maxsrobotics/resistorfinder"
+				image="assets/projects/beantown.webp"
+				position="30%"
+			/>
+			<ProjectCard
+				title="STAX"
+				body="This was a custom-designed azimuth-elevation rotator. It was used durin the HABGab 2023 balloon flight to aim a directional beam antenna towards the payload while it was in the air, to receive live video downlink. Mechanical design by Steve Kondo K1STK."
+				image="assets/projects/stax.jpg"
+				position="40%"
+			/>
+			<ProjectCard
+				title="WB1-3"
+				body="These were a series of consecutive high-altitude balloons flights, before the dawn of NEWBS. WB1 was my first weather balloon, and WB3 was the last balloon in that naming convention."
+				href="https://github.com/New-England-Weather-Balloon-Society/WB3";
+				image="assets/projects/wbs.jpg"
+				position="70%"
+			/>
+			<ProjectCard
+				title="HABGab 2023"
+				body="This was our (meaning NEWBS) major high-altitude balloon flight in the Summer of 2023. It consisted of a live-video payload (courtesy of Michael Howjnowski KD2EAT), a ham radio repeater, and a payload of student experiments."
+				href="https://github.com/New-England-Weather-Balloon-Society/HABGab-2023";
+				image="assets/projects/habgab.jpg"
+				position="40%"
+			/>
 		</div>
+		<hr style="margin-top: 2em; margin-bottom: 2em;" />
+		<h1 style="margin-bottom: 0px;">Public Speaking</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">I have developed my passion for public speaking over the course of many years. Here are a few of my recent presentations!</p>
+		<div class="speaking">
+			<PresentationCard
+				title="Tiny4FSK - The Future of High-Altitude Tracking Systems"
+				body="This presentation covered surface-level general information about Tiny4FSK."
+				tags={["4h", "big-e", "4h foundation"]}
+				date="April 2024 / September 2024"
+			/>
+			<PresentationCard
+				title="Tiny4FSK - The Cutting-Edge High-Altitude Tracking System"
+				body="This presentation delved deeply into Tiny4FSK and how it works."
+				tags={["hamxposition", "gpsl", "stars"]}
+				date="August 2024"
+			/>
+			<PresentationCard
+				title="Zero to Hero KiCAD"
+				body="This is a 3-hour workshop aimed to teach students how KiCAD works, and students create a blinking circuit."
+				tags={["hamxposition"]}
+				date="August 2024"
+			/>
+			<PresentationCard
+				title="StratoScience 2024 - Ham Radio and Education to New Heights"
+				body="Discussed StratoScience program and the student projects for the year."
+				tags={["hamxposition"]}
+				date="August 2024"
+			/>
+			<PresentationCard
+				title="NEWSDR Conference"
+				body="I presented a lightning talk and showed my Tiny4FSK research poster."
+				tags={["newsdr"]}
+				date="May 2024"
+			/>
+			<PresentationCard
+				title="Practical High-Altitude Ballooning"
+				body="Discussed common practices, tips and tricks, and general instruction for flying high-altitude balloons."
+				tags={["hampden county arc"]}
+				date="March 2024"
+			/>
+			<PresentationCard
+				title="Radiosonde Hunting and Reprogramming"
+				body="Discussed methods of radiosonde retrieval and showed how to reprogram them."
+				tags={["hamxposition"]}
+				date="August 2023"
+			/>
+			<PresentationCard
+				title="Youth Engineering and Ham Radio on High-Altitude Balloons"
+				body="Discussed StratoScience program and the student projects for the year, as well as HABGab 2023."
+				tags={["hamxposition"]}
+				date="August 2023"
+			/>
+			<PresentationCard
+				title="Weather Education Day"
+				body="I got a speaking role on Weather Education Day at Gillette Stadium."
+				tags={["gillette stadium"]}
+				date="April 2023"
+			/>
+			<PresentationCard
+				title="DIY Electronics and APRS for HAB Payloads"
+				body="I outlined how hobbyists can fly research projects at low cost."
+				tags={["hamxposition"]}
+				date="August 2022"
+			/>
+			<PresentationCard
+				title="Cubes in Space"
+				body="I outlined the Cubes in Space 2022 project."
+				tags={["hamxposition"]}
+				date="August 2022"
+			/>
+			<PresentationCard
+				title="Shake, Shake, Power"
+				body="I outlined Cubes in Space 2022 and how Faraday's Law works."
+				tags={["4h"]}
+				date="Spring 2022"
+			/>
+		</div>
+		<hr style="margin-top: 2em; margin-bottom: 2em;" />
+		<h1 style="margin-bottom: 0px;">Classes</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">In addition to presentations, I also enjoy teaching workshops and classes, both one-time, and recurring. Have a look below!</p>
+		<div class="teaching">
+			<PresentationCard
+				title="StratoScience Lab"
+				body="I teach an intensive 9-month hands-on engineering design class, where students can fly experiments on high-altitude balloons."
+				href="https://nescitech.org/stratoscience"
+				tags={["nest", "newbs"]}
+				date="2023-2024-2025"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="Arduino Class"
+				body="I teach an 6-week beginner and intermediate Arduino crash course. We build laser-tag bots and obstacle-avoidance robots."
+				href="https://nescitech.org/arduino"
+				tags={["nest"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="Arduino Coding and Robotics"
+				body="I teach a season-long Arduino class at the Medway Public Library."
+				href=""
+				tags={["medway public library"]}
+				date="2019-2020-2021-2022-2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="WiTek Engineering Workshop"
+				body="WiTek is an open reccuring workshop which I have led several times."
+				tags={["nest"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="StratoScience @ BFCCPS"
+				body="I have taught a condensed 5-week version of StratoScience Lab to members of my school."
+				tags={["bfccps"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="StratoScience @ BFCCPS"
+				body="I have taught a condensed 5-week version of StratoScience Lab to members of my school."
+				tags={["bfccps"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
 	</main>
 </Layout>
 
@@ -114,8 +278,11 @@ const iconLinks: {
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
-		align-items: center;
-		justify-content: center;
+		justify-items: center;
+	}
+
+	hr {
+		margin: inherit;
 	}
 
 	.socials {
@@ -151,6 +318,7 @@ const iconLinks: {
 		border: solid rgb(139, 43, 43) 5px;
 		border-radius: 4em;
 		background-color: #0b111f;
+		border-style: solid;
 	}
 
 	.welcome div {
@@ -172,8 +340,23 @@ const iconLinks: {
 	}
 
 	.projects {
-		display: flex;
-		justify-content: center;
-		gap: 50px;
+		display: grid;
+		gap: 30px;
+		grid-template-columns: repeat(2, 400px);
+		justify-items: center;
+	}
+
+	.speaking {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
+	}
+
+	.teaching {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
 	}
 </style>

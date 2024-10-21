@@ -9,25 +9,30 @@ const { borderRadius = '4em', width, height, divisor = 30 } = Astro.props;
 ---
 
 <div class="tilt-box" 
-     style=`--borderRadius: ${borderRadius}; width: ${width}; height: ${height}`
+     style=`--borderRadius: ${borderRadius}; width: ${width}; height: ${height}` 
      data-divisor={divisor}>
     <slot />
 </div>
 
 <style>
     .tilt-box {
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
         display: flex;
         align-items: center;
         justify-content: center;
         perspective: 1000px;
         border-radius: var(--borderRadius);
+
+        /* Prevent jump on hover */
+        transform-origin: center;
+        transform-style: preserve-3d;
+        will-change: transform, box-shadow;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Add a default shadow */
     }
 
     .tilt-box:hover {
-        box-shadow: 0 50px 20px rgba(0, 0, 0, 0.3);
+        /* A more subtle shadow that doesn't change box size */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 </style>
 
