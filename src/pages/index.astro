@@ -6,6 +6,7 @@ import PresentationCard from "../components/PresentationCard.astro";
 import Card from "../components/Card.astro";
 import Icon from "../components/Icon.astro";
 import type { iconPaths } from "../components/IconPaths";
+import Navigation from "../components/Navigation.astro";
 
 const iconLinks: {
 	label: string;
@@ -42,6 +43,7 @@ const iconLinks: {
 
 <Layout title="Max Kendall">
 	<main>
+		<Navigation />
 		<TiltBox width="900px">
 			<div class="welcome">
 				<div>
@@ -65,12 +67,15 @@ const iconLinks: {
 						style="text-align: center; max-width: 30rem; margin: auto;"
 					>
 						I'm an avid youth developer in 8th grade based in the
-						Greater Boston area in Massachusetts. I love sending projects into near-space on high altitude balloons, and I enjoy anything
-						involving PCBs, embedded firmware, web development, CAD,
-						3D printing, and combining all of these into a single
-						functional project. I have my Amateur Extra radio license (callsign W0MXX). I also love teaching and presenting
-						these technical topics to spread the knowledge. Look
-						below for some of my projects!
+						Greater Boston area in Massachusetts. I love sending
+						projects into near-space on high altitude balloons, and
+						I enjoy anything involving PCBs, embedded firmware, web
+						development, CAD, 3D printing, and combining all of
+						these into a single functional project. I have my
+						Amateur Extra radio license (callsign W0MXX). I also
+						love teaching and presenting these technical topics to
+						spread the knowledge. Look below for some of my
+						projects!
 					</p>
 				</div>
 				<div>
@@ -82,8 +87,11 @@ const iconLinks: {
 			</div>
 		</TiltBox>
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
-		<h1 style="margin-bottom: 0px;">My Projects</h1>
-		<p style="margin-bottom: 30px; margin-top: 30px; text-align: center;">I believe that project-based learning is the best form of learning. Throughout all of my projects, I have developed many skills. </p>
+		<h1 style="margin-bottom: 0px;" id="project-header">My Projects</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			I believe that project-based learning is the best form of learning.
+			Throughout all of my projects, I have developed many skills.
+		</p>
 		<div class="projects">
 			<ProjectCard
 				title="Tiny4FSK"
@@ -99,15 +107,21 @@ const iconLinks: {
 				position="55%"
 			/>
 			<ProjectCard
-				title="Cubes in Space 2022"
-				body="Cubes in Space is a program which gives students a 40mm cube to fly experiments on a sounding rocket. I flew an advanced electronics payload featuring application of Faraday's Law to test viability of generating electrical energy from the vibrations of a sounding rocket."
-				href="https://github.com/maxsrobotics/CubesinSpace"
-				image="assets/projects/CiS.jpg"
-				position="30%"
+				title="HABGab 2023"
+				body="This was our (meaning NEWBS) major high-altitude balloon flight in the Summer of 2023. It consisted of a live-video payload (courtesy of Mike Hojnowski KD2EAT), a ham radio repeater, and a payload of student experiments."
+				href="https://github.com/New-England-Weather-Balloon-Society/HABGab-2023"
+				image="assets/projects/habgab.jpg"
+				position="40%"
+			/>
+			<ProjectCard
+				title="STAX"
+				body="This was a custom-designed azimuth-elevation rotator. It was used during the HABGab 2023 balloon flight to aim a directional beam antenna towards the payload while it was in the air, to receive live video downlink. Mechanical design by Steve Kondo K1STK."
+				image="assets/projects/stax.jpg"
+				position="40%"
 			/>
 			<ProjectCard
 				title="Ham Club"
-				body="This was a project in conjunction with Hack Club that gave youth ham radios if they got their license. I helped with the curriculum, planning, organization, and graphic design of the project."
+				body="This was a project in conjunction with Hack Club that gave youth ham radios if they got their license. I assisted with the curriculum, planning, organization, and graphic design of the project."
 				href="https://ham.hackclub.com"
 				image="assets/projects/hamclub.webp"
 				position="50%"
@@ -120,29 +134,26 @@ const iconLinks: {
 				position="30%"
 			/>
 			<ProjectCard
-				title="STAX"
-				body="This was a custom-designed azimuth-elevation rotator. It was used durin the HABGab 2023 balloon flight to aim a directional beam antenna towards the payload while it was in the air, to receive live video downlink. Mechanical design by Steve Kondo K1STK."
-				image="assets/projects/stax.jpg"
-				position="40%"
+				title="Cubes in Space 2022"
+				body="Cubes in Space is a program which gives students a 40mm cube to fly experiments on a sounding rocket. I flew an advanced electronics payload featuring application of Faraday's Law to test viability of generating electrical energy from the vibrations of a sounding rocket."
+				href="https://github.com/maxsrobotics/CubesinSpace"
+				image="assets/projects/CiS.jpg"
+				position="30%"
 			/>
 			<ProjectCard
 				title="WB1-3"
 				body="These were a series of consecutive high-altitude balloons flights, before the dawn of NEWBS. WB1 was my first weather balloon, and WB3 was the last balloon in that naming convention."
-				href="https://github.com/New-England-Weather-Balloon-Society/WB3";
+				href="https://github.com/New-England-Weather-Balloon-Society/WB3"
 				image="assets/projects/wbs.jpg"
 				position="70%"
 			/>
-			<ProjectCard
-				title="HABGab 2023"
-				body="This was our (meaning NEWBS) major high-altitude balloon flight in the Summer of 2023. It consisted of a live-video payload (courtesy of Michael Howjnowski KD2EAT), a ham radio repeater, and a payload of student experiments."
-				href="https://github.com/New-England-Weather-Balloon-Society/HABGab-2023";
-				image="assets/projects/habgab.jpg"
-				position="40%"
-			/>
 		</div>
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
-		<h1 style="margin-bottom: 0px;">Public Speaking</h1>
-		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">I have developed my passion for public speaking over the course of many years. Here are a few of my recent presentations!</p>
+		<h1 style="margin-bottom: 0px;" id="speaking-header">Public Speaking</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			I have developed my passion for public speaking over the course of
+			many years. Here are a few of my recent presentations that I authored and presented!
+		</p>
 		<div class="speaking">
 			<PresentationCard
 				title="Tiny4FSK - The Future of High-Altitude Tracking Systems"
@@ -218,14 +229,17 @@ const iconLinks: {
 			/>
 		</div>
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
-		<h1 style="margin-bottom: 0px;">Classes</h1>
-		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">In addition to presentations, I also enjoy teaching workshops and classes, both one-time, and recurring. Have a look below!</p>
+		<h1 style="margin-bottom: 0px;" id="classes-header">Classes</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			In addition to presentations, I also enjoy teaching workshops and
+			classes, both one-time, and recurring. Have a look below!
+		</p>
 		<div class="teaching">
 			<PresentationCard
 				title="StratoScience Lab"
 				body="I teach an intensive 9-month hands-on engineering design class, where students can fly experiments on high-altitude balloons."
 				href="https://nescitech.org/stratoscience"
-				tags={["nest", "newbs"]}
+				tags={["new england sci-tech", "newbs"]}
 				date="2023-2024-2025"
 				border="rgb(255, 165, 0)"
 			/>
@@ -233,7 +247,7 @@ const iconLinks: {
 				title="Arduino Class"
 				body="I teach an 6-week beginner and intermediate Arduino crash course. We build laser-tag bots and obstacle-avoidance robots."
 				href="https://nescitech.org/arduino"
-				tags={["nest"]}
+				tags={["new england sci-tech"]}
 				date="2023-2024"
 				border="rgb(255, 165, 0)"
 			/>
@@ -248,7 +262,7 @@ const iconLinks: {
 			<PresentationCard
 				title="WiTek Engineering Workshop"
 				body="WiTek is an open reccuring workshop which I have led several times."
-				tags={["nest"]}
+				tags={["new england sci-tech"]}
 				date="2023-2024"
 				border="rgb(255, 165, 0)"
 			/>
@@ -260,18 +274,55 @@ const iconLinks: {
 				border="rgb(255, 165, 0)"
 			/>
 			<PresentationCard
-				title="StratoScience @ BFCCPS"
-				body="I have taught a condensed 5-week version of StratoScience Lab to members of my school."
-				tags={["bfccps"]}
+				title="STEAM"
+				body="I mentor and teach several STEAM classes at the Medway Public Library."
+				tags={["medway public library"]}
 				date="2023-2024"
 				border="rgb(255, 165, 0)"
 			/>
+		</div>
+		<hr style="margin-top: 2em; margin-bottom: 2em;" />
+		<h1 style="margin-bottom: 0px;" id="leadership-header">Leadership</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			Here's some experiences in leadership I have had.
+		</p>
+		<div class="leadership">
+			<PresentationCard
+				title="STARS"
+				body="I am the president and youth ambassador of the Sci-Tech Amateur Radio Society. I lead meetings, form activities, and work booths for the club."
+				tags={["new england sci-tech"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="N.E.W.B.S"
+				body="I am a founder of the New England Weather Balloon Society. I created and manage the Discord server, which currently has over 100 members and harbors continuous activity. I also run booths at local conventions."
+				tags={["new england sci-tech"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="NE HamXposition Youth Subcomittee"
+				body="I am a member of the youth subcommitee of the North East HamXposition, an annual gathering of amateur radio enthusiasts. I help tailor activities at the HamXposition for youth attendees."
+				tags={["hamxposition", "new england sci-tech"]}
+				date="2024"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="Science Explorers 4H Club"
+				body="I am the president of the Science Explorers 4H club. I attend and run 4H activities, including STEAM at the Medway Public Library."
+				tags={["medway public library"]}
+				date="2023-2024"
+				border="rgb(255, 165, 0)"
+			/>
+		</div>
 	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
+		margin-top: 3rem;
 		padding: 1rem;
 		width: 1000px;
 		max-width: calc(100% - 2rem);
@@ -279,6 +330,11 @@ const iconLinks: {
 		font-size: 20px;
 		line-height: 1.6;
 		justify-items: center;
+		padding-top: 80px;
+	}
+
+	[id] {
+		scroll-margin-top: 9rem;
 	}
 
 	hr {
@@ -315,7 +371,7 @@ const iconLinks: {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border: solid rgb(139, 43, 43) 5px;
+		border: solid rgb(var(--accent-red)) 5px;
 		border-radius: 4em;
 		background-color: #0b111f;
 		border-style: solid;
@@ -326,7 +382,7 @@ const iconLinks: {
 	}
 
 	.welcome img {
-		border: solid rgb(255, 165, 0) 5px;
+		border: solid rgb(104, 104, 104) 5px;
 		border-radius: 4em;
 	}
 
@@ -354,6 +410,13 @@ const iconLinks: {
 	}
 
 	.teaching {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
+	}
+
+	.leadership {
 		display: grid;
 		gap: 10px;
 		grid-template-columns: repeat(3, 300px);

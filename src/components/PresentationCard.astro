@@ -29,7 +29,7 @@ const { title, body, href, tags, date, border = "rgb(104, 104, 104)" } = Astro.p
                     <p><strong>{ date }</strong></p>
                 </div>
                 <div class="tags-container">
-                    <p><em>Presented at:</em> 
+                    <p><em>Location:</em> 
                         <span class="tags">
                             {tags.map(tag => (
                                 <span class="tag">{tag}</span> // Wrap each tag in a span
@@ -79,7 +79,7 @@ const { title, body, href, tags, date, border = "rgb(104, 104, 104)" } = Astro.p
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        /* -webkit-line-clamp: 3; */
         -webkit-box-orient: vertical;
     }
 
