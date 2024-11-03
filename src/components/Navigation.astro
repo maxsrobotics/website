@@ -3,11 +3,13 @@ import "../layouts/Layout.astro"
 ---
 <div class="navbar">
     <a href="#" onclick="activateTab(event)">Home</a>
-    <a href="#" onclick="activateTab(event)">My Story</a>
+    <a href="#skills-header" onclick="activateTab(event)">Skills</a>
     <a href="#project-header" onclick="activateTab(event)">Projects</a>
     <a href="#speaking-header" onclick="activateTab(event)">Public Speaking</a>
     <a href="#classes-header" onclick="activateTab(event)">Classes</a>
     <a href="#leadership-header" onclick="activateTab(event)">Leadership</a>
+    <a href="#achievements-header" onclick="activateTab(event)">Awards and Achievements</a>
+    <a href="#publicity-header" onclick="activateTab(event)">Publicity</a>
 </div>
 
 <style>
@@ -20,9 +22,11 @@ import "../layouts/Layout.astro"
         background-color: #0b111f;
         padding: 10px 20px;
         border-radius: 50px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
         z-index: 1000;
         border: solid 5px gray;
+        flex-wrap: nowrap;
+        white-space: nowrap;
     }
 
     .navbar a {

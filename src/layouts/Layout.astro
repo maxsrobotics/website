@@ -18,6 +18,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<p style="color:gray; text-align:center; margin-bottom:10px; font-size:12px;">Made with Astro. Hosted on Vercel and <a href="https://github.com/maxsrobotics/website" style="text-decoration:underline;">on GitHub.</a> Licensed under MIT. © 2024 Maxwell Kendall.</p>
 	</body>
 </html>
 <style is:global>
@@ -33,6 +34,14 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 40%,
 			white 60%
 		);
+	}
+	::selection {
+		background-color: rgb(var(--accent-red));
+		color: white;
+	}
+	::-moz-selection {
+		background-color: rgb(var(--accent-red));
+		color: white;
 	}
 	html {
 		font-family: system-ui, sans-serif;

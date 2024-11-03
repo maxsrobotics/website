@@ -3,10 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import TiltBox from "../components/TiltBox.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import PresentationCard from "../components/PresentationCard.astro";
-import Card from "../components/Card.astro";
 import Icon from "../components/Icon.astro";
 import type { iconPaths } from "../components/IconPaths";
 import Navigation from "../components/Navigation.astro";
+import SkillCard from "../components/SkillCard.astro";
 
 const iconLinks: {
 	label: string;
@@ -39,6 +39,19 @@ const iconLinks: {
 		icon: "email-logo",
 	},
 ];
+
+const getAge = (birthDate: Date) => {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+};
+
+const birthDate = new Date('2010-11-27');
+
 ---
 
 <Layout title="Max Kendall">
@@ -66,7 +79,7 @@ const iconLinks: {
 						class="text-lg"
 						style="text-align: center; max-width: 30rem; margin: auto;"
 					>
-						I'm an avid youth developer in 8th grade based in the
+						I'm a { getAge(birthDate) } year old avid youth developer based in the
 						Greater Boston area in Massachusetts. I love sending
 						projects into near-space on high altitude balloons, and
 						I enjoy anything involving PCBs, embedded firmware, web
@@ -86,6 +99,19 @@ const iconLinks: {
 				</div>
 			</div>
 		</TiltBox>
+		<!-- <hr style="margin-top: 2em; margin-bottom: 2em;" />
+		<h1 style="margin-bottom: 0px;" id="skills-header">Skills</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			Here's some of my skills in various areas!
+		</p>
+		<h2 style="font-size: 30px;">Electronics</h2>
+		<hr style="margin-top: 1em; margin-bottom: 1em; width: 300px;" />
+		<div class="skills">
+			<SkillCard name="KiCAD" body="Lorem ipsum domor set" image="assets/skills/kicad.svg" position="0%" tags={["tiny4fsk", "cubes in space"]} />
+			<SkillCard name="Microcontroller Coding" body="Lorem ipsum domor set" image="assets/skills/kicad.svg" position="0%" tags={["stax", "wb1-3", "habgab"]} />
+			<SkillCard name="AVR/ARM" body="Lorem ipsum domor set" image="assets/skills/kicad.svg" position="0%" tags={["tiny4fsk", "cubes in space"]} />
+			<SkillCard name="Test Equipment" body="Lorem ipsum domor set" image="assets/skills/kicad.svg" position="0%" tags={["tiny4fsk"]} />
+		</div> -->
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
 		<h1 style="margin-bottom: 0px;" id="project-header">My Projects</h1>
 		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
@@ -176,8 +202,8 @@ const iconLinks: {
 			<PresentationCard
 				title="StratoScience 2024 - Ham Radio and Education to New Heights"
 				body="Discussed StratoScience program and the student projects for the year."
-				tags={["hamxposition"]}
-				date="August 2024"
+				tags={["hamxposition", "stars"]}
+				date="August 2024 / October 2024"
 			/>
 			<PresentationCard
 				title="NEWSDR Conference"
@@ -289,31 +315,116 @@ const iconLinks: {
 		<div class="leadership">
 			<PresentationCard
 				title="STARS"
-				body="I am the president and youth ambassador of the Sci-Tech Amateur Radio Society. I lead meetings, form activities, and work booths for the club."
+				body="I am the president, youth ambassador, and collegiate outreach of the Sci-Tech Amateur Radio Society. I lead meetings, form activities, and work booths for the club."
 				tags={["new england sci-tech"]}
 				date="2023-2024"
-				border="rgb(255, 165, 0)"
 			/>
 			<PresentationCard
 				title="N.E.W.B.S"
-				body="I am a founder of the New England Weather Balloon Society. I created and manage the Discord server, which currently has over 100 members and harbors continuous activity. I also run booths at local conventions."
+				body="I am a founder of the New England Weather Balloon Society. I manage the Discord server (100+ members), teach classes, and work booths for local events."
 				tags={["new england sci-tech"]}
 				date="2023-2024"
-				border="rgb(255, 165, 0)"
 			/>
 			<PresentationCard
 				title="NE HamXposition Youth Subcomittee"
-				body="I am a member of the youth subcommitee of the North East HamXposition, an annual gathering of amateur radio enthusiasts. I help tailor activities at the HamXposition for youth attendees."
+				body="I am a member of the youth subcommitee of the North East HamXposition. I help tailor activities at the HamXposition for youth attendees."
 				tags={["hamxposition", "new england sci-tech"]}
 				date="2024"
-				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="New England Sci-Tech"
+				body="I am on the leadership team of New England Sci-Tech, a local STEM makerspace. I am an official instructor and an informal advisor."
+				tags={["new england sci-tech"]}
+				date="2022-2023-2024"
+			/>
+			<PresentationCard
+				title="Sci-Tech Hack Club"
+				body="I co-lead the Sci-Tech Hack Club along with Charlie Nicholson. I organize, lead classes, and conduct workshops surrounding the love of coding."
+				tags={["new england sci-tech"]}
+				date="2022-2023-2024"
 			/>
 			<PresentationCard
 				title="Science Explorers 4H Club"
 				body="I am the president of the Science Explorers 4H club. I attend and run 4H activities, including STEAM at the Medway Public Library."
 				tags={["medway public library"]}
 				date="2023-2024"
+			/>
+		</div>
+		<hr style="margin-top: 2em; margin-bottom: 2em;" />
+		<h1 style="margin-bottom: 0px;" id="achievements-header">Awards and Achievements</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			Here's some of my achievements and awards!
+		</p>
+		<div class="achievements">
+			<PresentationCard
+				title="NLE Gold Metal and Perfect Score"
+				body="Along with electronics and technology, I also have a passion for Latin. I scored a gold metal and perfect score on the National Latin Exam 2 years in a row."
+				tags={["new england sci-tech"]}
+				date="2023-2024"
 				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="Amateur Extra Amateur Radio License"
+				body="I passed Technician, General, and Amateur Extra amateur radio license levels when I was 10 years old."
+				tags={["new england sci-tech"]}
+				date="2020-2021"
+				border="rgb(255, 165, 0)"
+			/>
+			<PresentationCard
+				title="BFCCPS Medal of Virtue"
+				body="I received a Medal of Virtue from my school recognizing all 4 virtues: Justice, Temperance, Prudence, and Fortitude."
+				tags={["bfccps"]}
+				date="2024"
+				border="rgb(255, 165, 0)"
+			/>
+		</div>
+		<hr style="margin-top: 2em; margin-bottom: 2em;" />
+		<h1 style="margin-bottom: 0px;" id="publicity-header">Publicity</h1>
+		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
+			Here's some publications that I've been mentioned in! <em>Tip: click anywhere in the card to see the article!</em>
+		</p>
+		<div class="publicity">
+			<PresentationCard
+				title="Hackaday - Tiny4FSK"
+				body="An article was published on Hackaday regarding the Tiny4FSK project!"
+				href="https://hackaday.com/2024/10/03/a-lightweight-balloon-tracker-for-high-altitude-missions"
+				tags={["hackaday"]}
+				date="2024"
+			/>
+			<PresentationCard
+				title="Microchip Makes - Tiny4FSK"
+				body="Microchip Makes released informational posts regarding Tiny4FSK."
+				href="https://x.com/MicrochipMakes/status/1790853868764397634"
+				tags={["microchip makes"]}
+				date="2024"
+			/>
+			<PresentationCard
+				title="CBS News - Weather Education Day"
+				body="My dad and I got invited to speak at Weather Education Day by CBS. We spoke about the New England Weather Balloon Society and radiosonde hunting. (53 minutes in)."
+				href="https://www.cbsnews.com/boston/news/wbz-weather-education-day-new-england-revolution-2024/"
+				tags={["cbs news", "wbz news"]}
+				date="2024"
+			/>
+			<PresentationCard
+				title="The Boston Globe - N.E.W.B.S"
+				body="An article was published in the Boston Globe about the New England Weather Balloon Society! More specifically, it relates to some high-profile HAB events."
+				href="https://www.bostonglobe.com/2023/02/27/metro/facing-scrutiny-like-never-before-new-englands-amateur-balloonists-are-feeling-pressure/"
+				tags={["boston globe"]}
+				date="2023"
+			/>
+			<PresentationCard
+				title="Medway-Millis Local Paper"
+				body="An article was published in my local paper regarding New England Weather Balloon Society."
+				href="https://www.millismedwaynews.com/2021/08/02/364393/rising-fifth-grader-launches-second-weather-balloon-max-kendall-is-now-working-on-a-third-with-the-medway-balloon-society"
+				tags={["millis medway"]}
+				date="2021"
+			/>
+			<PresentationCard
+				title="Wicked Local - Country Gazette"
+				body="An article was published in another local paper regarding my independent weather balloon projects."
+				href="https://www.wickedlocal.com/picture-gallery/country-gazette/2021/03/03/photos-max-kendalls-weather-balloon-project/6897504002/"
+				tags={["wicked local"]}
+				date="2021"
 			/>
 		</div>
 	</main>
@@ -382,7 +493,7 @@ const iconLinks: {
 	}
 
 	.welcome img {
-		border: solid rgb(104, 104, 104) 5px;
+		border: solid gray 5px;
 		border-radius: 4em;
 	}
 
@@ -420,6 +531,33 @@ const iconLinks: {
 		display: grid;
 		gap: 10px;
 		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
+	}
+
+	.achievements {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
+	}
+	.achievements {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
+	}
+
+	.publicity {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(3, 300px);
+		justify-items: center;
+	}
+
+	.skills {
+		display: grid;
+		gap: 10px;
+		grid-template-columns: repeat(4, 200px);
 		justify-items: center;
 	}
 </style>
