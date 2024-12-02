@@ -41,17 +41,16 @@ const iconLinks: {
 ];
 
 const getAge = (birthDate: Date) => {
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-  return age;
+	const today = new Date();
+	let age = today.getFullYear() - birthDate.getFullYear();
+	const m = today.getMonth() - birthDate.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+		age--;
+	}
+	return age;
 };
 
-const birthDate = new Date('2010-11-27');
-
+const birthDate = new Date("2010-11-27");
 ---
 
 <Layout title="Max Kendall">
@@ -76,19 +75,10 @@ const birthDate = new Date('2010-11-27');
 						}
 					</div>
 					<p
+						id="age-text"
 						class="text-lg"
 						style="text-align: center; max-width: 30rem; margin: auto;"
 					>
-						I'm a { getAge(birthDate) } year old avid youth developer based in the
-						Greater Boston area in Massachusetts. I love sending
-						projects into near-space on high altitude balloons, and
-						I enjoy anything involving PCBs, embedded firmware, web
-						development, CAD, 3D printing, and combining all of
-						these into a single functional project. I have my
-						Amateur Extra radio license (callsign W0MXX). I also
-						love teaching and presenting these technical topics to
-						spread the knowledge. Look below for some of my
-						projects!
 					</p>
 				</div>
 				<div>
@@ -175,10 +165,13 @@ const birthDate = new Date('2010-11-27');
 			/>
 		</div>
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
-		<h1 style="margin-bottom: 0px;" id="speaking-header">Public Speaking</h1>
+		<h1 style="margin-bottom: 0px;" id="speaking-header">
+			Public Speaking
+		</h1>
 		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
 			I have developed my passion for public speaking over the course of
-			many years. Here are a few of my recent presentations that I authored and presented!
+			many years. Here are a few of my recent presentations that I
+			authored and presented!
 		</p>
 		<div class="speaking">
 			<PresentationCard
@@ -351,7 +344,9 @@ const birthDate = new Date('2010-11-27');
 			/>
 		</div>
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
-		<h1 style="margin-bottom: 0px;" id="achievements-header">Awards and Achievements</h1>
+		<h1 style="margin-bottom: 0px;" id="achievements-header">
+			Awards and Achievements
+		</h1>
 		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
 			Here's some of my achievements and awards!
 		</p>
@@ -381,7 +376,9 @@ const birthDate = new Date('2010-11-27');
 		<hr style="margin-top: 2em; margin-bottom: 2em;" />
 		<h1 style="margin-bottom: 0px;" id="publicity-header">Publicity</h1>
 		<p style="margin-bottom:30px; margin-top: 30px; text-align: center;">
-			Here's some publications that I've been mentioned in! <em>Tip: click anywhere in the card to see the article!</em>
+			Here's some publications that I've been mentioned in! <em
+				>Tip: click anywhere in the card to see the article!</em
+			>
 		</p>
 		<div class="publicity">
 			<PresentationCard
@@ -428,6 +425,25 @@ const birthDate = new Date('2010-11-27');
 			/>
 		</div>
 	</main>
+	<script>
+		const getAge = (birthDate) => {
+			const today = new Date();
+			let age = today.getFullYear() - birthDate.getFullYear();
+			const m = today.getMonth() - birthDate.getMonth();
+			if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+				age--;
+			}
+			return age;
+		};
+
+		// Update the age on the page
+		document.addEventListener("DOMContentLoaded", () => {
+			const birthDate = new Date("2010-11-27");
+			const age = getAge(birthDate);
+			document.getElementById("age-text").innerText =
+				`I'm a ${age}-year-old avid youth developer based in the Greater Boston area in Massachusetts. I love sending projects into near-space on high altitude balloons, and I enjoy anything involving PCBs, embedded firmware, web development, CAD, 3D printing, and combining all of these into a single functional project. I have my Amateur Extra radio license (callsign W0MXX). I also love teaching and presenting these technical topics to spread the knowledge. Look below for some of my projects!`;
+		});
+	</script>
 </Layout>
 
 <style>
