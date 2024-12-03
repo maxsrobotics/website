@@ -426,7 +426,7 @@ const birthDate = new Date("2010-11-27");
 		</div>
 	</main>
 	<script>
-		const getAge = (birthDate) => {
+		const getAge = (birthDate: Date): number => {
 			const today = new Date();
 			let age = today.getFullYear() - birthDate.getFullYear();
 			const m = today.getMonth() - birthDate.getMonth();
@@ -443,8 +443,7 @@ const birthDate = new Date("2010-11-27");
 			const ageTextElement = document.getElementById("age-text");
 
 			if (ageTextElement) {
-				document.getElementById("age-text").innerText =
-					`I'm a ${age}-year-old avid youth developer based in the Greater Boston area in Massachusetts. I love sending projects into near-space on high altitude balloons, and I enjoy anything involving PCBs, embedded firmware, web development, CAD, 3D printing, and combining all of these into a single functional project. I have my Amateur Extra radio license (callsign W0MXX). I also love teaching and presenting these technical topics to spread the knowledge. Look below for some of my projects!`;
+				ageTextElement.innerText = `I'm a ${age}-year-old avid youth developer based in the Greater Boston area in Massachusetts. I love sending projects into near-space on high altitude balloons, and I enjoy anything involving PCBs, embedded firmware, web development, CAD, 3D printing, and combining all of these into a single functional project. I have my Amateur Extra radio license (callsign W0MXX). I also love teaching and presenting these technical topics to spread the knowledge. Look below for some of my projects!`;
 			} else {
 				console.error("Age text element not found.");
 			}
